@@ -1,0 +1,196 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('./bg.jpg'); /* Update with your background image path */
+    background-size: cover; 
+    background-position: center;
+}
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back side when flipped */
+    border-radius: 8px; /* Rounded corners */
+    display: flex; /* Enables flexbox for alignment */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    background-size: contain; /* Ensures the image fits inside */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    transform: rotateY(180deg); /* Rotates the back side */
+}
+
+#game-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+  
+}
+
+/* Start Game Button Styles */
+#reset-btn {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff6a00, #ffb400);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#reset-btn:hover {
+    background: linear-gradient(135deg, #ffb400, #ff6a00);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+#reset-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Game board styling */
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(6, 60px);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Card styles */
+.card {
+    width: 60px;
+    height: 80px;
+    cursor: pointer;
+    position: relative;
+    perspective: 1000px;
+}
+
+/* Flipping animation */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front side of the card (the image) */
+.card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-image: url('./theme1.png'); /* Update path to your image */
+    background-size: cover;
+    border-radius: 8px;
+    background-color: blue;
+}
+
+/* Back side of the card (contains the icon or color) */
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: white;
+    border-radius: 8px;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    color: black;
+}
+
+/* Card hover effect */
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Card matched state */
+.card.matched .card-inner {
+    box-shadow: 0px 0px 10px 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #game-board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .card {
+        width: 60px;
+        height: 80px;
+    }
+}
+#score-display {
+    font-size: 24px; /* Adjust the font size as needed */
+    margin-bottom: 20px; /* Space below the score */
+    text-align: left; /* Align text to the left */
+    color: rgb(255, 255, 255); /* Change color as needed */
+    padding-left: 10px; /* Add padding to move it slightly to the left */
+    /* border: 1px solid white; */
+    font-weight: bolder;
+    font-size: larger;
+    background: linear-gradient(135deg, #ff6a00, #ffb400);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    height: 30px;
+    width: 100px;
+    
+
+}
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+}
+
+#score-display,
+#timer-display {
+    font-size: 24px; /* Adjust font size as needed */
+    margin-bottom: 20px; /* Space below the score and timer */
+    text-align: left; /* Align text to the left */
+    color: #333; /* Change color as needed */
+    display: flex;
+    flex-direction: row;
+     background: linear-gradient(135deg, #ff6a00, #ffb400);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    height: 30px;
+    width: 100px;
+
+
+    
+}
+
+#timer-display {
+    margin-left: 20px; /* Space between score and timer */
+    padding-left: 10px; 
+    width: 135px;
+}
+#score-timer-container
+{
+    display: flex;
+    flex-direction: row;
+    top:0.5rem;
+    position: fixed;
+    gap:11em;
+
+}
