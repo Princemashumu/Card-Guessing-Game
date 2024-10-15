@@ -35,7 +35,7 @@ body {
 #reset-btn {
     font-size: 18px;
     font-weight: bold;
-    padding: 15px 30px;
+    /* padding: 15px 30px; */
     background: linear-gradient(135deg, #ff6a00, #ffb400);
     color: white;
     border: none;
@@ -43,6 +43,7 @@ body {
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    height: 50px;
 }
 
 #reset-btn:hover {
@@ -117,9 +118,9 @@ body {
 }
 
 /* Card hover effect */
-.card:hover .card-inner {
+/* .card:hover .card-inner {
     transform: rotateY(180deg);
-}
+} */
 
 /* Card matched state */
 .card.matched .card-inner {
@@ -139,20 +140,16 @@ body {
 }
 #score-display {
     font-size: 24px; /* Adjust the font size as needed */
-    margin-bottom: 20px; /* Space below the score */
+    margin: 0; /* Space below the score */
     text-align: left; /* Align text to the left */
+    justify-content: center;
     color: rgb(255, 255, 255); /* Change color as needed */
     padding-left: 10px; /* Add padding to move it slightly to the left */
     /* border: 1px solid white; */
     font-weight: bolder;
-    font-size: larger;
-    background: linear-gradient(135deg, #ff6a00, #ffb400);
-    color: white;
-    border: none;
-    border-radius: 30px;
-    height: 30px;
-    width: 100px;
+  
     
+
 
 }
 #game-container {
@@ -161,22 +158,16 @@ body {
     align-items: center; /* Center content horizontally */
 }
 
-#score-display,
+
 #timer-display {
-    font-size: 24px; /* Adjust font size as needed */
-    margin-bottom: 20px; /* Space below the score and timer */
+    font-size: 24px; /* Adjust the font size as needed */
+    margin: 0; /* Space below the score */
     text-align: left; /* Align text to the left */
-    color: #333; /* Change color as needed */
-    display: flex;
-    flex-direction: row;
-     background: linear-gradient(135deg, #ff6a00, #ffb400);
-    color: white;
-    border: none;
-    border-radius: 30px;
-    height: 30px;
-    width: 100px;
-
-
+    justify-content: center;
+    color: rgb(255, 255, 255); /* Change color as needed */
+    padding-left: 10px; /* Add padding to move it slightly to the left */
+    /* border: 1px solid white; */
+    font-weight: bolder;
     
 }
 
@@ -193,4 +184,41 @@ body {
     position: fixed;
     gap:11em;
 
+}
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.hidden {
+    display: none; /* Hide elements with this class */
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
 }
