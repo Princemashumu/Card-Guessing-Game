@@ -3,6 +3,36 @@
 ## 📌 Overview
 The **Card Guessing Game** is a fun memory-matching game where players flip cards to find matching pairs. The game keeps track of the player's score and time, rewarding correct matches and deducting points for incorrect ones.
 
+## 🛠️ Installation
+### Prerequisites
+Make sure you have Node.js and npm (Node Package Manager) installed. If you haven't installed them yet, you can download and install them from the official Node.js website.
+
+Steps to Install
+Clone the repository: Clone the project to your local machine using the following command:
+
+```
+git clone https://github.com/princemashumu/Card-guessing-Game.git
+```
+Navigate to the project directory: Change into the project directory:
+
+```
+cd Card-guessing-Game
+```
+Install dependencies: Install the required dependencies listed in package.json:
+
+```
+npm install
+```
+Start the game: You can start the game by simply opening the index.html file in your browser:
+
+```
+open index.html
+```
+Alternatively, if you want to run the Node.js server (for any potential backend or API purposes in future updates), use the following command:
+
+```
+npm start
+```
 ## 🎮 How to Play
 1. Click on a card to flip it.
 2. Click on another card to find its matching pair.
@@ -51,6 +81,12 @@ The game starts with a timer that records the time taken to complete the game. T
   }
 }
 ```
+
+## 📷 Screenshots
+
+![Image](https://github.com/user-attachments/assets/6f82824a-ea5a-4a1f-8bce-89f42a1248c6)
+
+![Image](https://github.com/user-attachments/assets/f3ce006a-120a-4f4b-b8da-be70855331d0)
 
 ## 📂 File Structure
 ```
