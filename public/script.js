@@ -95,46 +95,51 @@ function checkMatch() {
         secondCard.classList.add('matched');
         matchedCards += 2;
 
-        // Increase score by 10 points for a correct match
-        updateScore(10);
+        updateScore(10); // Increase score by 10
 
-        // If all cards are matched, display win message
+        // Check if all cards are matched
         if (matchedCards === shuffledCards.length) {
-            stopTimer(); // Stop the timer
+            stopTimer();
             setTimeout(() => {
-                finalScoreDisplay.textContent = `Your Score: ${score}`; // Set final score in modal
-                modal.classList.remove('hidden'); // Show the modal
+                document.getElementById('final-score').textContent = score; // Set final score
+                document.getElementById('win-message').classList.remove('hidden'); // Show win modal
             }, 500);
         }
     } else {
-        // Deduct 5 points for an incorrect match, but never let score go below 0
+        // Deduct 5 points, but prevent negative score
         score = Math.max(score - 5, 0);
         scoreDisplay.textContent = `Score: ${score}`;
 
-        // Flip cards back if not matched
+        // Flip cards back
         setTimeout(() => {
             firstCard.classList.remove('flipped');
             secondCard.classList.remove('flipped');
         }, 1000);
     }
-    
+
     selectedCards = [];
-    gameBoard.classList.remove('no-clicks'); // Re-enable clicks
+    gameBoard.classList.remove('no-clicks'); // Enable clicking again
 }
+
+
 
 // Reset the game
 function resetGame() {
     matchedCards = 0;
-    score = 0; // Reset score to 0
-    elapsedTime = 0; // Reset elapsed time
-    scoreDisplay.textContent = `Score: ${score}`; // Update score display
-    timerDisplay.textContent = `Time: 00:00`; // Reset timer display
-    clearInterval(timerInterval); // Clear any existing timer
-    shuffledCards = shuffle(cardValues); // Reshuffle cards
+    score = 0;
+    elapsedTime = 0;
+    scoreDisplay.textContent = `Score: ${score}`;
+    timerDisplay.textContent = `Time: 00:00`;
+    clearInterval(timerInterval);
+    shuffledCards = shuffle(cardValues);
     createBoard();
-    startTimer(); // Start the timer when the game resets
-    modal.classList.add('hidden'); // Hide modal
+    startTimer();
+    document.getElementById('win-message').classList.add('hidden'); // Hide modal
 }
+
+// Event listener for "Play Again" button
+document.getElementById('play-again-btn').addEventListener('click', resetGame);
+
 
 // Event listeners for reset and play again buttons
 resetBtn.addEventListener('click', resetGame);
