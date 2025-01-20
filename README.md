@@ -1,5 +1,7 @@
 # Card Guessing Game 🎴🃏
 
+[card-guessing-game-chi.vercel.app](https://card-guessing-game-chi.vercel.app/)
+
 ## 📌 Overview
 The **Card Guessing Game** is a fun memory-matching game where players flip cards to find matching pairs. The game keeps track of the player's score and time, rewarding correct matches and deducting points for incorrect ones.
 
