@@ -88,38 +88,39 @@ function flipCard() {
 
 // Check if the selected cards match
 function checkMatch() {
-  const [firstCard, secondCard] = selectedCards;
-  if (firstCard.dataset.value === secondCard.dataset.value) {
-      firstCard.classList.add('matched');
-      secondCard.classList.add('matched');
-      matchedCards += 2;
+    const [firstCard, secondCard] = selectedCards;
+    
+    if (firstCard.dataset.value === secondCard.dataset.value) {
+        firstCard.classList.add('matched');
+        secondCard.classList.add('matched');
+        matchedCards += 2;
 
-      // Update score for a correct match
-      updateScore(10); // Add points for a correct guess
+        // Increase score by 10 points for a correct match
+        updateScore(10);
 
-      // If all cards are matched, display win message
-      if (matchedCards === shuffledCards.length) {
-          stopTimer(); // Stop the timer
-          setTimeout(() => {
-              finalScoreDisplay.textContent = `Your Score: ${score}`; // Set final score in modal
-              modal.classList.remove('hidden'); // Show the modal
-          }, 500);
-      }
-  } else {
-      // Update score for an incorrect match
-      const newScore = score - 5; // Calculate new score
-      updateScore(newScore < 0 ? 0 : newScore); // Set score to 0 if it goes below
+        // If all cards are matched, display win message
+        if (matchedCards === shuffledCards.length) {
+            stopTimer(); // Stop the timer
+            setTimeout(() => {
+                finalScoreDisplay.textContent = `Your Score: ${score}`; // Set final score in modal
+                modal.classList.remove('hidden'); // Show the modal
+            }, 500);
+        }
+    } else {
+        // Deduct 5 points for an incorrect match, but never let score go below 0
+        score = Math.max(score - 5, 0);
+        scoreDisplay.textContent = `Score: ${score}`;
 
-      // Flip cards back if not matched
-      setTimeout(() => {
-          firstCard.classList.remove('flipped');
-          secondCard.classList.remove('flipped');
-      }, 1000);
-  }
-  selectedCards = [];
-  gameBoard.classList.remove('no-clicks'); // Re-enable clicks
+        // Flip cards back if not matched
+        setTimeout(() => {
+            firstCard.classList.remove('flipped');
+            secondCard.classList.remove('flipped');
+        }, 1000);
+    }
+    
+    selectedCards = [];
+    gameBoard.classList.remove('no-clicks'); // Re-enable clicks
 }
-
 
 // Reset the game
 function resetGame() {
